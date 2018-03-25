@@ -1,7 +1,8 @@
 package com.per.calculation.functions
 
-class Multiplication {
-    def evaluate(a, b) {
+class Multiplication implements Function {
+    @Override
+    Integer evaluate(Integer a, Integer b) {
         return a * b
     }
 }

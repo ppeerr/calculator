@@ -1,8 +1,9 @@
 package com.per.calculation.functions
 
-class Subtraction {
-    def evaluate(a, b) {
+class Subtraction implements Function {
+
+    @Override
+    Integer evaluate(Integer a, Integer b) {
         return a - b
     }
-
 }

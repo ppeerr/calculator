@@ -1,9 +1,9 @@
 package com.per.calculation;
 
-import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 
 public interface CalculationService {
 
-    int calc() throws IOException;
+    CompletableFuture<Integer> calc() throws Exception;
 
 }
