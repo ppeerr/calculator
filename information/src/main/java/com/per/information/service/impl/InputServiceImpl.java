@@ -26,7 +26,7 @@ public class InputServiceImpl implements InputService {
     private BlockingQueue<Integer> second;
 
     public InputServiceImpl(String filePath) throws IOException {
-        Reader reader = new FileReader(new ClassPathResource("inputMid.txt").getFile());
+        Reader reader = new FileReader(new ClassPathResource("input.txt").getFile());
         bufferedReader = new BufferedReader(reader);
 
         first = new LinkedBlockingQueue<>();

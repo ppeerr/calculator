@@ -23,9 +23,6 @@ public class InformationController {
     @Autowired
     private ApplicationContext applicationContext;
 
-//    @Autowired
-//    private InputService inputService;
-
 
     @RequestMapping(value = "/read", method = RequestMethod.POST)
     public ResponseEntity startRead() {

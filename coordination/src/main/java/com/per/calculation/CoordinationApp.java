@@ -15,7 +15,9 @@ import static java.lang.System.exit;
 public class CoordinationApp implements CommandLineRunner {
 
     private static final String INFORMATION_ENDPOINT = "http://localhost:9095/api/information";
+
     private static final String CALCULATION_ENDPOINT = "http://localhost:9093/api/calculation";
+    private static final String CALCULATION_CALC_URI = CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}";
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(CoordinationApp.class);
@@ -29,43 +31,13 @@ public class CoordinationApp implements CommandLineRunner {
         restTemplate.postForLocation(INFORMATION_ENDPOINT + "/read", null);
         log.info("Reading was called");
 
-        restTemplate.postForLocation(
-                CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}",
-                null,
-                1,
-                "subtraction"
-        );
-        restTemplate.postForLocation(
-                CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}",
-                null,
-                3,
-                "subtraction"
-        );
-        restTemplate.postForLocation(
-                CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}",
-                null,
-                5,
-                "subtraction"
-        );
+        restTemplate.postForLocation(CALCULATION_CALC_URI, null, 1, "subtraction");
+        restTemplate.postForLocation(CALCULATION_CALC_URI, null, 3, "subtraction");
+        restTemplate.postForLocation(CALCULATION_CALC_URI, null, 5, "subtraction");
 
-        restTemplate.postForLocation(
-                CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}",
-                null,
-                2,
-                "addition"
-        );
-        restTemplate.postForLocation(
-                CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}",
-                null,
-                4,
-                "addition"
-        );
-        restTemplate.postForLocation(
-                CALCULATION_ENDPOINT + "/calc/{calculationType}/{functionName}",
-                null,
-                6,
-                "addition"
-        );
+        restTemplate.postForLocation(CALCULATION_CALC_URI, null, 2, "addition");
+        restTemplate.postForLocation(CALCULATION_CALC_URI, null, 4, "addition");
+        restTemplate.postForLocation(CALCULATION_CALC_URI, null, 6, "addition");
 
         Integer result = null;
         while (result == null) {
